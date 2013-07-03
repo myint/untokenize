@@ -127,8 +127,7 @@ def check(args):
                 tokenize.TokenError,
                 UnicodeDecodeError,
                 UnicodeEncodeError) as exception:
-            print('--->  Skipping bad file ' + name +
-                  ' (' + str(exception) + ')',
+            print('--->  Skipping bad file {0} ({1})'.format(name, exception),
                   file=sys.stderr)
             continue
 
