@@ -1,0 +1,9 @@
+.*.swp
+*.pyc
+MANIFEST
+README.html
+__pycache__/
+.travis-solo/
+build/
+dist/
+htmlcov/
