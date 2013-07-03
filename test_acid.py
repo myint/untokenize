@@ -52,6 +52,13 @@ def run(filename):
     with open_with_encoding(filename,
                             encoding=detect_encoding(filename)) as input_file:
         source_code = input_file.read()
+
+        # Handle files with trailing whitespace, but no final newline.
+        # tokenize.generate_tokens() will not report these trailing
+        # whitespaces.
+        if source_code.endswith((' ', '\t')):
+            source_code = source_code.rstrip()
+
         string_io = io.StringIO(source_code)
 
         generated = untokenize.untokenize(
