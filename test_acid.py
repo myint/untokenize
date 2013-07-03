@@ -54,8 +54,8 @@ def run(filename):
         source_code = input_file.read()
 
         # Handle files with trailing whitespace, but no final newline.
-        # tokenize.generate_tokens() will not report these trailing
-        # whitespaces.
+        # tokenize.generate_tokens() will not report the trailing whitespace in
+        # such a case.
         if source_code.endswith((' ', '\t')):
             source_code = source_code.rstrip()
 

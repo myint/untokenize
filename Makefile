@@ -4,7 +4,7 @@ check:
 	pylint --report=no --include-ids=yes --disable=C0103,R0913,R0914,W0622 --rcfile=/dev/null untokenize.py setup.py
 	check-manifest --ignore=.travis.yml,Makefile,test_acid.py,tox.ini
 	python setup.py --long-description | rst2html --strict > /dev/null
-	scspell untokenize.py setup.py test_untokenize.py README.rst
+	scspell untokenize.py setup.py test_untokenize.py test_acid.py README.rst
 
 coverage:
 	@rm -f .coverage
