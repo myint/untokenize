@@ -34,6 +34,15 @@ def detect_encoding(filename):
         return 'latin-1'
 
 
+def diff(before, after):
+    """Return diff of two files."""
+    import difflib
+    return ''.join(difflib.unified_diff(
+        before.splitlines(True),
+        after.splitlines(True),
+        lineterm='\n'))
+
+
 def run(filename):
     """Run pyformat on file at filename.
 
@@ -45,12 +54,15 @@ def run(filename):
         source_code = input_file.read()
         string_io = io.StringIO(source_code)
 
-        if source_code == untokenize.untokenize(
-                tokenize.generate_tokens(string_io.readline)):
+        generated = untokenize.untokenize(
+            tokenize.generate_tokens(string_io.readline))
+
+        if source_code == generated:
             return True
         else:
             print('untokenize failed on ' + filename,
                   file=sys.stderr)
+            print(diff(source_code, generated))
 
 
 def process_args():
