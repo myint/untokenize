@@ -59,6 +59,9 @@ def foo():
             1
 ''')
 
+    def test_untokenize_with_empty_string(self):
+        self.check('')
+
 
 if __name__ == '__main__':
     unittest.main()
