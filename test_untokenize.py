@@ -24,26 +24,26 @@ class TestUnits(unittest.TestCase):
                 tokenize.generate_tokens(string_io.readline)))
 
     def test_untokenize(self):
-        self.check(r'''
+        self.check('''
 
 def zap():
 
     """Hello zap.
-                   
+
   """; 1
 
 
-    x 	= 		  	 1
+    x \t= \t\t  \t 1
 
 
 ''')
 
     def test_untokenize_with_tab_indentation(self):
-        self.check(r'''
+        self.check("""
 if True:
-	def zap():
-		x 	= 		  	 1
-''')
+\tdef zap():
+\t\tx \t= \t\t  \t 1
+""")
 
     def test_untokenize_with_backslash_in_comment(self):
         self.check(r'''
