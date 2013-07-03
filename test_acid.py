@@ -123,10 +123,13 @@ def check(args):
 
                 if not run(os.path.join(name)):
                     return False
-        except (UnicodeDecodeError,
-                UnicodeEncodeError,
-                tokenize.TokenError) as exception:
-            print(exception, file=sys.stderr)
+        except (IndentationError,
+                tokenize.TokenError,
+                UnicodeDecodeError,
+                UnicodeEncodeError) as exception:
+            print('--->  Skipping bad file ' + name +
+                  ' (' + str(exception) + ')',
+                  file=sys.stderr)
             continue
 
     return True
