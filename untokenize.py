@@ -1,3 +1,5 @@
+"""Transform tokens into original source code."""
+
 import tokenize
 
 
