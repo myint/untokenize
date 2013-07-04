@@ -3,7 +3,7 @@
 
 That is, the output of
 
-untokenize.untokenize(tokenize.generate_tokens(file_input))
+untokenize.untokenize(tokenize.generate_tokens(file_input.readline))
 
 is exactly equal to the input file.
 
