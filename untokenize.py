@@ -48,17 +48,15 @@ def untokenize(tokens):
         (start_row, start_column) = start
         (end_row, end_column) = end
 
-        # Preserve escaped newlines
+        # Preserve escaped newlines.
         if (
             last_non_whitespace_token_type != tokenize.COMMENT and
             start_row > last_row and
-            (previous_line.endswith('\\\n') or
-             previous_line.endswith('\\\r\n') or
-             previous_line.endswith('\\\r'))
+            previous_line.endswith(('\\\n', '\\\r\n', '\\\r'))
         ):
             text += previous_line[len(previous_line.rstrip(' \t\n\r\\')):]
 
-        # Preserve spacing
+        # Preserve spacing.
         if start_row > last_row:
             last_column = 0
         if start_column > last_column:
