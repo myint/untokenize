@@ -1,5 +1,13 @@
 #!/usr/bin/env python
-"""Test that untokenize always generates the expected output."""
+"""Test that untokenize always generates the expected output.
+
+That is, the output of
+
+untokenize.untokenize(tokenize.generate_tokens(file_input))
+
+is exactly equal to the input file.
+
+"""
 
 from __future__ import print_function
 from __future__ import unicode_literals
@@ -44,7 +52,7 @@ def diff(before, after):
 
 
 def run(filename):
-    """Run pyformat on file at filename.
+    """Check untokenize with file.
 
     Return True on success.
 
@@ -81,7 +89,7 @@ def process_args():
 
 
 def check(args):
-    """Run recursively run pyformat on directory of files.
+    """Run test recursively on directory of files.
 
     Return False if the fix results in broken syntax.
 
