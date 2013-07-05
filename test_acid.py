@@ -77,7 +77,8 @@ def run(filename):
         else:
             print('untokenize failed on ' + filename,
                   file=sys.stderr)
-            print(diff(source_code, generated))
+            print(diff(source_code, generated),
+                  file=sys.stderr)
 
 
 def process_args():
