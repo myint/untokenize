@@ -20,6 +20,12 @@ import tokenize
 import untokenize
 
 
+try:
+    unicode
+except NameError:
+    unicode = str
+
+
 def open_with_encoding(filename, encoding, mode='r'):
     """Return opened file with a specific encoding."""
     return io.open(filename, mode=mode, encoding=encoding,
@@ -119,7 +125,7 @@ def check(args):
                 completed_filenames.update(name)
 
             if os.path.isdir(name):
-                for root, directories, children in os.walk(name):
+                for root, directories, children in os.walk(unicode(name)):
                     filenames += [os.path.join(root, f) for f in children
                                   if f.endswith('.py') and
                                   not f.startswith('.')]
