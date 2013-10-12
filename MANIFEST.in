@@ -1,3 +1,7 @@
 include MANIFEST.in
 include README.rst
 include test_untokenize.py
+
+exclude .travis.yml
+exclude Makefile
+exclude test_acid.py

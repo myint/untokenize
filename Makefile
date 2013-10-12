@@ -6,7 +6,7 @@ check:
 		--reports=no \
 		--disable=invalid-name \
 		untokenize.py setup.py test_acid.py
-	check-manifest --ignore=.travis.yml,Makefile,test_acid.py
+	check-manifest
 	python setup.py --long-description | rst2html --strict > /dev/null
 	scspell untokenize.py setup.py test_untokenize.py test_acid.py README.rst
 
