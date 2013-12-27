@@ -6,8 +6,8 @@ untokenize
 ``tokenize.untokenize()``, it preserves the original whitespace between tokens.
 
 .. image:: https://travis-ci.org/myint/untokenize.png?branch=master
-   :target: https://travis-ci.org/myint/untokenize
-   :alt: Build status
+    :target: https://travis-ci.org/myint/untokenize
+    :alt: Build status
 
 
 Usage
