@@ -10,7 +10,11 @@ from __future__ import (absolute_import,
 import io
 import sys
 import tokenize
-import unittest
+
+if sys.version_info < (2, 7):
+    import unittest2 as unittest
+else:
+    import unittest
 
 import untokenize
 
