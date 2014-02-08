@@ -28,6 +28,14 @@ import tokenize
 __version__ = '0.1.1'
 
 
+NON_WHITESPACE_TOKENS = frozenset([tokenize.INDENT,
+                                   tokenize.NEWLINE,
+                                   tokenize.NL])
+
+
+TOKENIZE_HAS_ENCODING = hasattr(tokenize, 'ENCODING')
+
+
 def untokenize(tokens):
     """Return source code based on tokens.
 
@@ -44,7 +52,7 @@ def untokenize(tokens):
     last_non_whitespace_token_type = None
 
     for (token_type, token_string, start, end, line) in tokens:
-        if hasattr(tokenize, 'ENCODING') and token_type == tokenize.ENCODING:
+        if TOKENIZE_HAS_ENCODING and token_type == tokenize.ENCODING:
             continue
 
         (start_row, start_column) = start
@@ -71,7 +79,7 @@ def untokenize(tokens):
         last_row = end_row
         last_column = end_column
 
-        if token_type not in [tokenize.INDENT, tokenize.NEWLINE, tokenize.NL]:
+        if token_type not in NON_WHITESPACE_TOKENS:
             last_non_whitespace_token_type = token_type
 
     return text
