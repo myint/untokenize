@@ -44,6 +44,8 @@ def untokenize(tokens):
     last_non_whitespace_token_type = None
 
     for (token_type, token_string, start, end, line) in tokens:
+        if hasattr(tokenize, 'ENCODING') and token_type == tokenize.ENCODING:
+            continue
 
         (start_row, start_column) = start
         (end_row, end_column) = end

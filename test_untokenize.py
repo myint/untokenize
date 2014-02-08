@@ -8,6 +8,7 @@ from __future__ import (absolute_import,
                         unicode_literals)
 
 import io
+import sys
 import tokenize
 import unittest
 
@@ -61,6 +62,15 @@ def foo():
 
     def test_untokenize_with_empty_string(self):
         self.check('')
+
+    @unittest.skipIf(sys.version_info < (3, 0),
+                     'We are testing tokenize.ENCODING in Python 3')
+    def test_untokenize_with_encoding(self):
+        source = '0'
+        bytes_io = io.BytesIO(source.encode('us-ascii'))
+        self.assertEqual(
+            source,
+            untokenize.untokenize(tokenize.tokenize(bytes_io.readline)))
 
 
 if __name__ == '__main__':
