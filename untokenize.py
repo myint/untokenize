@@ -1,4 +1,4 @@
-# Copyright (C) 2013 Steven Myint
+# Copyright (C) 2013-2014 Steven Myint
 #
 # Permission is hereby granted, free of charge, to any person obtaining
 # a copy of this software and associated documentation files (the
@@ -25,7 +25,7 @@
 import tokenize
 
 
-__version__ = '0.1'
+__version__ = '0.1.1'
 
 
 def untokenize(tokens):
