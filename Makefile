@@ -7,7 +7,7 @@ check:
 		--disable=invalid-name \
 		untokenize.py setup.py test_acid.py
 	check-manifest
-	python setup.py --long-description | rst2html --strict > /dev/null
+	rstcheck README.rst
 	scspell untokenize.py setup.py test_untokenize.py test_acid.py README.rst
 
 coverage:
