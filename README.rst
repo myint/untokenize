@@ -5,7 +5,7 @@ untokenize
 *untokenize* transforms tokens into source code. Unlike the standard library's
 ``tokenize.untokenize()``, it preserves the original whitespace between tokens.
 
-.. image:: https://travis-ci.org/myint/untokenize.png?branch=master
+.. image:: https://travis-ci.org/myint/untokenize.svg?branch=master
     :target: https://travis-ci.org/myint/untokenize
     :alt: Build status
 
