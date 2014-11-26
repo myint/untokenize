@@ -1,6 +1,7 @@
 include MANIFEST.in
 include README.rst
 include test_untokenize.py
+include tox.ini
 
 exclude .travis.yml
 exclude Makefile

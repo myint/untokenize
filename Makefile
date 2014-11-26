@@ -4,6 +4,7 @@ check:
 	pylint \
 		--rcfile=/dev/null \
 		--reports=no \
+		--disable=bad-continuation \
 		--disable=invalid-name \
 		untokenize.py setup.py test_acid.py
 	check-manifest
