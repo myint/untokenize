@@ -1,6 +1,6 @@
 check:
-	pep8 untokenize.py setup.py test_acid.py
-	pep257 untokenize.py setup.py test_acid.py
+	pycodestyle untokenize.py setup.py test_acid.py
+	pydocstyle untokenize.py setup.py test_acid.py
 	pylint \
 		--rcfile=/dev/null \
 		--reports=no \
