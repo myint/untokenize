@@ -28,12 +28,9 @@ import tokenize
 __version__ = '0.1.1'
 
 
-NON_WHITESPACE_TOKENS = frozenset([tokenize.INDENT,
-                                   tokenize.NEWLINE,
-                                   tokenize.NL])
-
-
 TOKENIZE_HAS_ENCODING = hasattr(tokenize, 'ENCODING')
+
+WHITESPACE_TOKENS = frozenset([tokenize.INDENT, tokenize.NEWLINE, tokenize.NL])
 
 
 def untokenize(tokens):
@@ -79,7 +76,7 @@ def untokenize(tokens):
         last_row = end_row
         last_column = end_column
 
-        if token_type not in NON_WHITESPACE_TOKENS:
+        if token_type not in WHITESPACE_TOKENS:
             last_non_whitespace_token_type = token_type
 
     return text
